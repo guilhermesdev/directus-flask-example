@@ -1,8 +1,13 @@
-from flask import Flask
+from flask import Flask, render_template
+import directus
 
 app = Flask(__name__)
 
 
 @app.get("/")
 def home():
-    return "Hello world"
+    global_data = directus.get_global_data()
+
+    return render_template(
+        "home.html", title=global_data["title"], description=global_data["description"]
+    )
