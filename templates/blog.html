@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block head %}
+<style>
+	/* This is only needed to prevent cards list from receiving the default list style provided by Pico  */
+	.blog-posts { 
+		list-style: none;
+		padding: 0;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+<section>
+	<h1>Blog posts</h1>
+	<ol class="blog-posts">
+		{% for post in posts %}
+		<li>	
+			<article>
+				<h2>{{ post["title"] }}</h2>
+				<span>
+					{{ post["publish_date"] }} &bull; {{ post["author"]["name"] }}
+				</span>
+				<hr />
+				<a href="{{ '/blog/' + post["slug"] }}">Read post</a>
+			</article>
+		</li>
+		{% endfor %}
+	</ol>
+</section>
+{% endblock %}

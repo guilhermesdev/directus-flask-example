@@ -25,3 +25,10 @@ def dynamic_page(slug):
     return render_template(
         "dynamic-page.html", title=page["title"], content=page["content"]
     )
+
+
+@app.get("/blog")
+def blog_page():
+    posts = directus.get_posts()
+
+    return render_template("blog.html", posts=posts)
