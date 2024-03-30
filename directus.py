@@ -11,6 +11,6 @@ def get_global_data():
 
 def get_page_by_slug(slug):
     response = requests.get(
-        f"{DIRECTUS_BASE_URL}/items/pages/{slug}?fields[]=title,content"
+        f"{DIRECTUS_BASE_URL}/items/pages/{slug}"
     )
     return response.json().get("data")
