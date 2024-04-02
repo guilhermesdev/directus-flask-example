@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+	<h1>{% block title %}{{ post["title"] }}{% endblock %}</h1>
+	<span> {{ post["publish_date"] }} &bull; {{ post["author"]["name"] }} </span>
+</header>
+<hr />
+<article>
+	<img src="{{ post["image"] + "?format=webp&width=400" }}" />
+	<section>{{ post["content"] | safe }}</section>
+</article>
+{% endblock %}

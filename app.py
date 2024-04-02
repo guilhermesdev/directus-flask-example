@@ -32,3 +32,10 @@ def blog_page():
     posts = directus.get_posts()
 
     return render_template("blog.html", posts=posts)
+
+
+@app.get("/blog/<slug>")
+def post_page(slug):
+    post = directus.get_post_by_slug(slug)
+
+    return render_template("post.html", post=post)
