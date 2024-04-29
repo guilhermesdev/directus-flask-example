@@ -1,25 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-		/>
-		{% block head %}{% endblock %}
-
-		<title>{% block title %}Directus blog post with Flask{% endblock %}</title>
+		<title>{% block title %}Directus x Flask{% endblock %}</title>
 	</head>
 	<body>
-		<header class="container">
+		<header>
 			<nav>
 				<ul>
-					<li>
-						<a href="/"><strong>Home</strong></a>
-					</li>
-				</ul>
-				<ul>
+					<li><a href="/">Home</a></li>
 					<li><a href="/blog">Blog</a></li>
 					<li><a href="/about">About</a></li>
 					<li><a href="/conduct">Code of Conduct</a></li>
@@ -27,7 +17,6 @@
 				</ul>
 			</nav>
 		</header>
-
-		<main class="container">{% block content %}{% endblock %}</main>
+		<main>{% block content %}{% endblock %}</main>
 	</body>
 </html>

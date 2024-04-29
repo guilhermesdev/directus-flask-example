@@ -16,14 +16,14 @@ def get_page_by_slug(slug):
 
 def get_posts():
     response = requests.get(
-        f"{DIRECTUS_BASE_URL}/items/posts?fields[]=slug,title,description,publish_date,author.name&sort=-publish_date"
+        f"{DIRECTUS_BASE_URL}/items/posts?fields=slug,title,description,publish_date,author.name&sort=-publish_date"
     )
     return response.json().get("data")
 
 
 def get_post_by_slug(slug):
     response = requests.get(
-        f"{DIRECTUS_BASE_URL}/items/posts/{slug}?fields[]=*,author.name"
+        f"{DIRECTUS_BASE_URL}/items/posts/{slug}?fields=*,author.name"
     )
     post = response.json().get("data")
     post["image"] = f'{DIRECTUS_BASE_URL}/assets/{post["image"]}'

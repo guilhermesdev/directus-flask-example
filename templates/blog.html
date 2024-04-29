@@ -1,19 +1,9 @@
 {% extends "base.html" %}
 
-{% block head %}
-<style>
-	/* This is only needed to prevent cards list from receiving the default list style provided by Pico  */
-	.blog-posts { 
-		list-style: none;
-		padding: 0;
-	}
-</style>
-{% endblock %}
-
 {% block content %}
 <section>
 	<h1>Blog posts</h1>
-	<ol class="blog-posts">
+	<ol>
 		{% for post in posts %}
 		<li>	
 			<article>
